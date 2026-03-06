@@ -214,7 +214,7 @@ export default function CompanyPage() {
                             >
                                 <div className="flex-1 hidden md:block" />
                                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-teal-500 z-10" />
-                                <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
+                                <div className={`flex-1 ml-14 md:ml-0 ${index % 2 === 0 ? "md:pl-16" : "md:pr-16"}`}>
                                     <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
                                         <div className="text-sm font-bold text-teal-600 mb-1">{milestone.year}</div>
                                         <div className="text-gray-700 font-medium">{milestone.event}</div>

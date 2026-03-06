@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Download, LogIn } from "lucide-react";
 
 const navLinks = [
@@ -45,25 +46,22 @@ export function Header() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                        ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100"
-                        : "bg-transparent"
+                    ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100"
+                    : "bg-transparent"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/25 group-hover:shadow-teal-500/40 transition-shadow">
-                                <span className="text-white font-bold text-lg font-[var(--font-display)]">
-                                    1
-                                </span>
-                            </div>
-                            <span
-                                className={`text-xl font-bold font-[var(--font-display)] transition-colors ${isScrolled ? "text-navy-900" : "text-white"
-                                    }`}
-                            >
-                                1Cr Club
-                            </span>
+                        <Link href="/" className="flex items-center group">
+                            <Image
+                                src={isScrolled ? "/BlackLogo.png" : "/whiteLogo.png"}
+                                alt="1Cr Club Logo"
+                                width={140}
+                                height={40}
+                                className="h-10 w-auto transition-opacity duration-300"
+                                priority
+                            />
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -73,8 +71,8 @@ export function Header() {
                                     key={link.name}
                                     href={link.href}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-teal-500/10 ${isScrolled
-                                            ? "text-gray-600 hover:text-teal-600"
-                                            : "text-white/80 hover:text-white"
+                                        ? "text-gray-600 hover:text-teal-600"
+                                        : "text-white/80 hover:text-white"
                                         }`}
                                 >
                                     {link.name}
@@ -87,8 +85,8 @@ export function Header() {
                             <Link
                                 href="#"
                                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${isScrolled
-                                        ? "text-gray-700 hover:text-teal-600 hover:bg-teal-50"
-                                        : "text-white/90 hover:text-white hover:bg-white/10"
+                                    ? "text-gray-700 hover:text-teal-600 hover:bg-teal-50"
+                                    : "text-white/90 hover:text-white hover:bg-white/10"
                                     }`}
                             >
                                 <LogIn size={16} />
@@ -107,8 +105,8 @@ export function Header() {
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className={`lg:hidden p-2 rounded-xl transition-colors ${isScrolled
-                                    ? "text-gray-700 hover:bg-gray-100"
-                                    : "text-white hover:bg-white/10"
+                                ? "text-gray-700 hover:bg-gray-100"
+                                : "text-white hover:bg-white/10"
                                 }`}
                             aria-label="Toggle menu"
                         >
@@ -141,17 +139,19 @@ export function Header() {
                         >
                             <div className="flex flex-col h-full">
                                 <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
-                                            <span className="text-white font-bold">1</span>
-                                        </div>
-                                        <span className="text-lg font-bold font-[var(--font-display)] text-navy-900">
-                                            1Cr Club
-                                        </span>
+                                    <div className="flex items-center">
+                                        <Image
+                                            src="/BlackLogo.png"
+                                            alt="1Cr Club Logo"
+                                            width={120}
+                                            height={36}
+                                            className="h-9 w-auto"
+                                        />
                                     </div>
                                     <button
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="p-2 rounded-xl text-gray-500 hover:bg-gray-100"
+                                        aria-label="Close menu"
                                     >
                                         <X size={20} />
                                     </button>

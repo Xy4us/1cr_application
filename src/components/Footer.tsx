@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
     Mail,
     MapPin,
@@ -97,13 +98,14 @@ export function Footer() {
 
                 {/* Bottom Section */}
                 <div className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">1</span>
-                        </div>
-                        <span className="text-lg font-bold font-[var(--font-display)]">
-                            1Cr Club
-                        </span>
+                    <div className="flex items-center">
+                        <Image
+                            src="/whiteLogo.png"
+                            alt="1Cr Club Logo"
+                            width={120}
+                            height={36}
+                            className="h-9 w-auto"
+                        />
                     </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
@@ -127,13 +129,13 @@ export function Footer() {
                     <div className="flex items-center gap-4 text-gray-500 text-sm">
                         <div className="flex items-center gap-2">
                             <Mail size={14} />
-                            <span>hello@1crclub.com</span>
+                            <span>info@1crclub.com</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="pb-8 text-center text-xs text-gray-600">
-                    © {new Date().getFullYear()} 1Cr Club. All rights reserved. |
+                    © {new Date().getFullYear()} 1crclub. All rights reserved. |
                     Financial Intelligence Platform
                 </div>
             </div>
